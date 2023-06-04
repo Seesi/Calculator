@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.MainPage">
+    <ContentPage.Resources>
+        <Style x:Key="button" TargetType="Button">
+                <Setter Property="FontSize" Value="30" />
+        </Style>
+        <Style x:Key="operators" TargetType="Button" BasedOn="{StaticResource button}">
+                <Setter Property="CornerRadius" Value="48" />
+                <Setter Property="BackgroundColor" Value="Orange" />
+                <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style x:Key="operatorsExtra" TargetType="Button" BasedOn="{StaticResource button}">
+                <Setter Property="CornerRadius" Value="48" />
+                <Setter Property="BackgroundColor" Value="Gray" />
+                <Setter Property="TextColor" Value="Black" />
+        </Style>
+        <Style x:Key="digits" TargetType="Button" BasedOn="{StaticResource button}">
+                <Setter Property="CornerRadius" Value="48" />
+                <Setter Property="BackgroundColor" Value="DarkSlateGray" />
+                <Setter Property="TextColor" Value="White" />
+        </Style>
+
+    </ContentPage.Resources>
+    <Grid RowDefinitions="0.4*,0.6*">
+        <StackLayout>
+            <Label x:Name="Expression" VerticalOptions="CenterAndExpand" Margin="0,100,0,0" HeightRequest="200" HorizontalTextAlignment="End" TextColor="White" FontSize="48"></Label>
+            <Label x:Name="Evaluation" HeightRequest="60" HorizontalTextAlignment="End" TextColor="White" FontSize="48"></Label>
+        </StackLayout>
+        <Grid Grid.Row="1"
+              Padding="15"
+              RowDefinitions="*,*,*,*,*">
+            <Grid ColumnDefinitions="*,*,*,*">
+                <Button Style="{StaticResource operatorsExtra}" Grid.Column="0" Text="AC" Clicked="Button_Clicked"></Button>
+                <Button Style="{StaticResource operatorsExtra}" Grid.Column="1" Text="+/-"></Button>
+                <Button Style="{StaticResource operatorsExtra}" Grid.Column="2" Text="%"></Button>
+                <Button Style="{StaticResource operators}" Grid.Column="3" Text="/" Clicked="Button_Clicked"></Button>
+            </Grid>
+            <Grid ColumnDefinitions="*,*,*,*" Grid.Row="1">
+                <Button Style="{StaticResource digits}" Grid.Column="0" Text="7" Clicked="Button_Clicked"></Button>
+                <Button Style="{StaticResource digits}" Grid.Column="1" Text="8" Clicked="Button_Clicked"></Button>
+                <Button Style="{StaticResource digits}" Grid.Column="2" Text="9" Clicked="Button_Clicked"></Button>
+                <Button Style="{StaticResource operators}" Grid.Column="3" Text="x" Clicked="Button_Clicked"></Button>
+            </Grid>
+            <Grid ColumnDefinitions="*,*,*,*" Grid.Row="2">
+                <Button Style="{StaticResource digits}" Grid.Column="0" Text="4" Clicked="Button_Clicked"></Button>
+                <Button Style="{StaticResource digits}" Grid.Column="1" Text="5" Clicked="Button_Clicked"></Button>
+                <Button Style="{StaticResource digits}" Grid.Column="2" Text="6" Clicked="Button_Clicked"></Button>
+                <Button Style="{StaticResource operators}" Grid.Column="3" Text="-" Clicked="Button_Clicked"></Button>
+            </Grid>
+            <Grid ColumnDefinitions="*,*,*,*" Grid.Row="3">
+                <Button Style="{StaticResource digits}" Grid.Column="0" Text="1" Clicked="Button_Clicked"></Button>
+                <Button Style="{StaticResource digits}" Grid.Column="1" Text="2" Clicked="Button_Clicked"></Button>
+                <Button Style="{StaticResource digits}" Grid.Column="2" Text="3" Clicked="Button_Clicked"></Button>
+                <Button Style="{StaticResource operators}" Grid.Column="3" Text="+" Clicked="Button_Clicked"></Button>
+            </Grid>
+            <Grid ColumnDefinitions="*,*,*,*" Grid.Row="4">
+                <Button Style="{StaticResource digits}" Grid.ColumnSpan="2" Text="0" HeightRequest="50" Clicked="Button_Clicked"></Button>
+                <Button Style="{StaticResource digits}" Grid.ColumnSpan="1" Grid.Column="2" Text="." HeightRequest="50" WidthRequest="50"></Button>
+                <Button Style="{StaticResource operators}" Grid.ColumnSpan="1" Grid.Column="3" Text="=" Clicked="Button_Clicked"></Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>
+
